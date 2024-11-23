@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <title>Carbon Tracker Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f0fce8;
+      color: #4a4a4a;
+    }
+    .navbar-brand {
+      font-weight: bold;
+    }
+    .card {
+      background-color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .chart {
+      min-height: 250px;
+    }
+    .card-header {
+    font-weight: 500;
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: none; /* Removes underline or border */
+    padding-bottom: 0.5rem; /* Optional: Adjust padding for better spacing */
+    color: #6ab04c;
+  }
+    .icon-green {
+      color: #6ab04c;
+    }
+    .insights {
+        text-align: start;
+    }
+    .ins-tit2 {
+        font-weight: 600 !important;
+        color: #419241;
+        font-size: 20px;
+    }
+    .ins-tit {
+        font-weight: 500 !important;
+        color: #515451;
+
+    }
+
+    .small-pie-chart {
+    width: 250px !important;
+    height: 250px !important;
+    margin: 0 auto; /* Center the chart horizontally */
+  }
+  .recommendation-card {
+    border: 1px solid #d3d3d350; /* Gray border */
+    border-radius: 5px; /* Optional: rounded corners */
+  }
+  </style>
+</head>
+<body>
+  <!-- Navbarr -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CarbonTracker</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Centered Navigation Links -->
+        <ul class="navbar-nav mx-auto justify-content-center">
+          <li class="nav-item mx-5">
+            <a class="nav-link active" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item mx-5">
+            <a class="nav-link" href="#">Driver History</a>
+          </li>
+          <li class="nav-item mx-5">
+            <a class="nav-link" href="#">Reports & Analytics</a>
+          </li>
+        </ul>
+        <!-- Right-Aligned Notification and User Links -->
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="bi bi-bell icon-green"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+
+  <div class="container mt-4">
+    <!-- Metrics Row -->
+    <div class="row text-center">
+      <div class="insights col-md-3 my-4">
+        <div class="card p-3">
+          <div class=" ins-tit">Change vs. last month</div>
+          <div class="ins-tit2">2% increase</div>
+        </div>
+      </div>
+      <div class="insights col-md-3 my-4">
+        <div class="card p-3">
+          <div class=" ins-tit"> Change vs. last year</div>
+          <div class="ins-tit2">2% decrease</div>
+        </div>
+      </div>
+      <div class="insights col-md-3 my-4">
+        <div class="card p-3">
+          <div class=" ins-tit"> Enterprise Emissions Score</div>
+          <div class="ins-tit2">15-30 metric tons of CO₂</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Charts and Data Row -->
+    <div class="row mt-4">
+      <div class="col-md-7">
+        <div class="card p-3">
+          <div class="card-header">Carbon Tracker</div>
+          <canvas id="carbonChart" class="chart "></canvas>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="card p-3">
+          <div class="card-header">Emissions per vehicle models</div>
+          <!-- Add the label above the chart -->
+          <p class="text-center mt-3 ms-2">This chart shows emissions data for each vehicle model.</p>
+          <!-- Adjust the size of the canvas -->
+          <canvas id="emissionsChart" class="chart small-pie-chart"></canvas>
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- Recommendations and Fuel Consumption -->
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <div class="card p-3">
+            <div class="card-header">Recommendations</div>
+            <div class="row mt-3">
+              <div class="col-12">
+                <div class="card p-3 mb-3 shadow-sm recommendation-card">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-tree icon-green me-3"></i>
+                    <div>Plant 20 trees per year to offset carbon emissions.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="card p-3 mb-3 shadow-sm recommendation-card">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-lightning-charge icon-green me-3"></i>
+                    <div>Replace Toyota Corolla V35 with hybrid vehicles.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="card p-3 mb-3 shadow-sm recommendation-card">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-exclamation-circle icon-green me-3"></i>
+                    <div>Toyota Corolla V35 emits 10% more CO₂ than expected.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+      </div>
+      <div class="col-md-6">
+        <div class="card p-3">
+          <div class="card-header">Fuel Consumption per Vehicle Models</div>
+          <ul class="list-group list-group-flush px-3">
+            <li class="list-group-item">Toyota Yaris V35: 938 L</li>
+            <li class="list-group-item">Toyota Corolla V2: 756 L</li>
+            <li class="list-group-item">Toyota Landcruiser 2024: 421 L</li>
+            <li class="list-group-item">Mitsubishi A212: 446 L</li>
+            <li class="list-group-item">Mercedes Benz Ak47: 437 L</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const carbonCtx = document.getElementById('carbonChart').getContext('2d');
+    const carbonChart = new Chart(carbonCtx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+          label: 'CO₂',
+          data: [10, 20, 15, 30, 25, 35, 20, 15, 10, 20, 25, 30],
+          borderColor: '#6ab04c',
+          tension: 0.3,
+        }]
+      }
+    });
+
+    const emissionsCtx = document.getElementById('emissionsChart').getContext('2d');
+    const emissionsChart = new Chart(emissionsCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Toyota Corolla V35', 'Toyota Yaris V35', 'Other Models'],
+        datasets: [{
+          data: [50, 30, 20],
+          backgroundColor: ['#6ab04c', '#badc58', '#f6e58d'],
+        }]
+      }
+    });
+  </script>
+</body>
+</html>
