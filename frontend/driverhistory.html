@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driver History</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f0fce8;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      color: #419241 !important;
+    }
+    .nav-link.active {
+      color: #419241 !important;
+    }
+    .filter-btn {
+      font-size: 1rem;
+      color: #6ab04c;
+      cursor: pointer;
+    }
+    .table-card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    .card-title {
+      font-weight: bold;
+      font-size: 1.25rem;
+      color: #419241;
+      line-height: 3.5rem;
+    }
+    .description {
+      font-size: 0.95rem;
+      color: #4a4a4a;
+      line-height: 3.5rem;
+    }
+    .table tbody tr {
+      border-bottom: 1px solid #f0f0f0;
+      line-height: 3.5rem; /* Adjusts the height of each row */
+    }
+
+    .table tbody tr:last-child {
+      border-bottom: none;
+    }
+    .vehicle-tag {
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: #419241;
+      background-color: #e8f5e9;
+      padding: 2px 8px;
+      border-radius: 15px;
+    }
+    /* driver name and ID styling */
+    .driver-id {
+      display: block; /* Ensures the ID appears on its own line */
+      font-size: 0.9rem; /* Slightly smaller font size */
+      font-weight: bold; /* Make the ID bold for emphasis */
+      color: #555; /* A different color for differentiation */
+      margin-bottom: 4px; /* Add some spacing between ID and name */
+    }
+
+    .driver-name {
+      display: block; /* Ensures the name appears on its own line */
+      font-size: 1rem; /* Normal font size */
+      font-weight: normal; /* Standard weight */
+      color: #000; /* Default text color */
+    }
+
+</style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CarbonTracker</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Centered Navigation Links -->
+        <ul class="navbar-nav mx-auto justify-content-center">
+          <li class="nav-item mx-5">
+            <a class="nav-link" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item mx-5">
+            <a class="nav-link active" href="#">Driver History</a>
+          </li>
+          <li class="nav-item mx-5">
+            <a class="nav-link" href="#">Reports & Analytics</a>
+          </li>
+        </ul>
+        <!-- Right-Aligned Notification and User Links -->
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="bi bi-bell icon-green"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container my-4">
+    <h3 class="text-success">Driver History</h3>
+    <div class="card table-card">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="card-title">Highest Emission Vehicles</h5>
+        <span class="filter-btn"><i class="bi bi-filter"></i> Filter</span>
+      </div>
+      <p class="description">
+        This section highlights the vehicles that have the highest carbon footprint, helping to prioritize actions to reduce emissions and improve fleet efficiency.
+      </p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Driver</th>
+            <th>Distance</th>
+            <th>Vehicle Model</th>
+            <th>Fuel Type</th>
+            <th>CO₂/km</th>
+            <th>Total CO₂</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><div>
+                <span class="driver-id">2005897</span>
+                <span class="driver-name">Kevin Simo</span>
+              </div></td>
+            <td>1200 km</td>
+            <td>Toyota Corolla V35</td>
+            <td><span class="vehicle-tag">Diesel</span></td>
+            <td>0.00375 CO₂/km</td>
+            <td>4.6 tCO₂</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><div>
+                <span class="driver-id">2005897</span>
+                <span class="driver-name">Kevin Simo</span>
+              </div></td>
+            <td>1200 km</td>
+            <td>Toyota Corolla V35</td>
+            <td><span class="vehicle-tag">Diesel</span></td>
+            <td>0.00375 CO₂/km</td>
+            <td>4.6 tCO₂</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><div>
+                <span class="driver-id">2005897</span>
+                <span class="driver-name">Kevin Simo</span>
+              </div></td>
+            <td>1200 km</td>
+            <td>Toyota Corolla V35</td>
+            <td><span class="vehicle-tag">Diesel</span></td>
+            <td>0.00375 CO₂/km</td>
+            <td>4.6 tCO₂</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><div>
+                <span class="driver-id">2005897</span>
+                <span class="driver-name">Kevin Simo</span>
+              </div></td>
+            <td>1200 km</td>
+            <td>Toyota Corolla V35</td>
+            <td><span class="vehicle-tag">Diesel</span></td>
+            <td>0.00375 CO₂/km</td>
+            <td>4.6 tCO₂</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
